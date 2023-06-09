@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnStart = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -38,6 +39,11 @@
             this.btnSnapShot = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.sbtest = new System.Windows.Forms.Button();
+            this.laFps = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.fpsTimer = new System.Windows.Forms.Timer(this.components);
+            this.label4 = new System.Windows.Forms.Label();
+            this.laFaces = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -94,7 +100,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbOutputConsole.Location = new System.Drawing.Point(3, 55);
             this.tbOutputConsole.Name = "tbOutputConsole";
-            this.tbOutputConsole.Size = new System.Drawing.Size(232, 347);
+            this.tbOutputConsole.Size = new System.Drawing.Size(232, 192);
             this.tbOutputConsole.TabIndex = 4;
             this.tbOutputConsole.Text = "";
             // 
@@ -136,6 +142,10 @@
             this.splitContainer1.Panel2.Controls.Add(this.btnStart);
             this.splitContainer1.Panel2.Controls.Add(this.tbOutputConsole);
             this.splitContainer1.Panel2.Controls.Add(this.btnSnapShot);
+            this.splitContainer1.Panel2.Controls.Add(this.laFaces);
+            this.splitContainer1.Panel2.Controls.Add(this.laFps);
+            this.splitContainer1.Panel2.Controls.Add(this.label4);
+            this.splitContainer1.Panel2.Controls.Add(this.label3);
             this.splitContainer1.Panel2.Controls.Add(this.label1);
             this.splitContainer1.Size = new System.Drawing.Size(1092, 542);
             this.splitContainer1.SplitterDistance = 841;
@@ -144,13 +154,56 @@
             // sbtest
             // 
             this.sbtest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.sbtest.Location = new System.Drawing.Point(3, 443);
+            this.sbtest.Location = new System.Drawing.Point(3, 478);
             this.sbtest.Name = "sbtest";
             this.sbtest.Size = new System.Drawing.Size(75, 23);
             this.sbtest.TabIndex = 0;
             this.sbtest.Text = "test";
             this.sbtest.UseVisualStyleBackColor = true;
             this.sbtest.Click += new System.EventHandler(this.sbtest_Click);
+            // 
+            // laFps
+            // 
+            this.laFps.AutoSize = true;
+            this.laFps.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.laFps.Location = new System.Drawing.Point(38, 405);
+            this.laFps.Name = "laFps";
+            this.laFps.Size = new System.Drawing.Size(23, 15);
+            this.laFps.TabIndex = 3;
+            this.laFps.Text = "fps";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 405);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(29, 15);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "FPS:";
+            // 
+            // fpsTimer
+            // 
+            this.fpsTimer.Interval = 1000;
+            this.fpsTimer.Tick += new System.EventHandler(this.fpsTimer_Tick);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 250);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(90, 15);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Wykryte twarze:";
+            // 
+            // laFaces
+            // 
+            this.laFaces.AutoSize = true;
+            this.laFaces.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.laFaces.Location = new System.Drawing.Point(99, 250);
+            this.laFaces.Name = "laFaces";
+            this.laFaces.Size = new System.Drawing.Size(41, 15);
+            this.laFaces.TabIndex = 3;
+            this.laFaces.Text = "twarze";
             // 
             // Form1
             // 
@@ -183,5 +236,10 @@
         private Button btnSnapShot;
         private SplitContainer splitContainer1;
         private Button sbtest;
+        private System.Windows.Forms.Timer fpsTimer;
+        private Label laFps;
+        private Label label3;
+        private Label laFaces;
+        private Label label4;
     }
 }

@@ -1,17 +1,19 @@
 ﻿using System.Text;
+using System.Windows.Forms;
 using OpenCvSharp;
+using OpenCvSharp.Extensions;
 
 namespace Rozpoznawanie_obiektów_na_zdjeciach.Classes
 {
     public static class Uczenie
     {
 
-        public static void useTrainedData()
+        public static void useTrainedData(Image picture)
         {
             var srcImage = new Mat(@"C:\Users\mzdro\source\repos\OpenCVSharp-Samples\OpenCVSharpSample16\CarData\CarData\TestImages_Scale\test-1.pgm");
-            Cv2.ImShow("Source", srcImage);
-            Cv2.WaitKey(1); // do events
-
+            //var srcImage = new Mat(@"C:\Users\mzdro\OneDrive\Dokumenty\Modele AI\8dc26b0b-88e1-4fbc-adbf-db07ab8e65ec.jpg");
+            //Cv2.ImShow("Source", (Mat)picture;
+            //Cv2.WaitKey(1); // do events
             var grayImage = new Mat();
             Cv2.CvtColor(srcImage, grayImage, ColorConversionCodes.BGRA2GRAY);
             Cv2.EqualizeHist(grayImage, grayImage);
@@ -74,6 +76,6 @@ namespace Rozpoznawanie_obiektów_na_zdjeciach.Classes
             }
             File.WriteAllText(@"C:\Users\mzdro\source\repos\OpenCVSharp-Samples\OpenCVSharpSample16\CarsInfo\negativeImages.txt", sb.ToString());
         }
-
+        
     }
 }
